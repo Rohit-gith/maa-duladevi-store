@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-brand-700 text-cream shadow-soft hover:bg-brand-800;
+  }
+  .btn-gold {
+    @apply btn bg-gradient-to-r from-gold-400 via-accent-400 to-gold-400 text-brand-950 shadow-lg shadow-gold-500/25 hover:brightness-105;
+  }
+  .btn-accent {
+    @apply btn bg-accent-500 text-ink hover:bg-accent-400;
+  }
+  .btn-ghost {
+    @apply btn bg-white text-ink ring-1 ring-gold-300/70 hover:bg-paper;
+  }
+  .btn-whatsapp {
+    @apply btn bg-whatsapp-500 text-white shadow-lg shadow-whatsapp-500/25 hover:bg-whatsapp-600;
+  }
+  .input {
+    @apply w-full rounded-xl border border-gold-300/60 bg-white px-4 py-2.5 text-sm outline-none transition focus:border-brand-500 focus:ring-4 focus:ring-brand-100;
+  }
+  .section-title {
+    @apply text-2xl font-bold tracking-tight sm:text-3xl;
+  }
+  /* Thin double gold rule used as a premium divider */
+  .gold-rule {
+    @apply h-[3px] border-y border-gold-400/70;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
